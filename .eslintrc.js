@@ -25,14 +25,15 @@ module.exports = {
     'src/**/*.test.ts'
   ],
   rules: {
-    'semi': [2, 'never'],
+    'no-restricted-exports': 'off',
     //React
     'react/require-default-props': 'off',
     'react/function-component-definition': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
     //Typescript
-    '@typescript-eslint/semi': ['off'],
+    '@typescript-eslint/semi': ['error', 'never'],
+    '@typescript-eslint/comma-dangle': ['error', 'never'],
     '@typescript-eslint/naming-convention': [
       'error',
       {

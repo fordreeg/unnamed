@@ -1,27 +1,23 @@
-import '@fontsource/montserrat/300.css'
-import '@fontsource/montserrat/400.css'
 import '@fontsource/montserrat/500.css'
+import '@fontsource/montserrat/600.css'
 import '@fontsource/montserrat/700.css'
-import '~/styles/globals.css'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
 import type { AppProps } from 'next/app'
-import { green } from '@mui/material/colors'
-import { CssBaseline } from '@mui/material'
+import { CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material'
 import Layout from '~/components/Layout'
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: green[500],
-    },
-  },
-})
+import { useState } from 'react'
+import getTheme from '~/theme'
+import { ThemeMode, ThemeModes } from '~/types/interfaces/shared'
 
 export default function App({ Component, pageProps }: AppProps) {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+  const initMode: ThemeMode = prefersDarkMode ? ThemeModes.dark : ThemeModes.light
+  const [mode, setMode] = useState(initMode)
+  const theme = getTheme(mode)
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Layout>
+      <Layout setMode={setMode}>
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
