@@ -4,12 +4,9 @@ import { Theme } from '@mui/material'
 const Overrides: Components<Theme> = {
   MuiCssBaseline: {
     styleOverrides: {
-      '@global': {
-        'html, body': {
-          fontFamily: 'Montserrat, sans-serif',
-          minHeight: '100vh',
-          margin: 0
-        }
+      'html, body': {
+        minHeight: '100vh',
+        margin: 0
       }
     }
   }
