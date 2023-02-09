@@ -19,7 +19,8 @@ module.exports = {
     'plugin:@typescript-eslint/recommended'
   ],
   plugins: [
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'tss-unused-classes'
   ],
   ignorePatterns: [
     'src/**/*.test.ts'
@@ -32,6 +33,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
     //Typescript
+    'tss-unused-classes/unused-classes': 'warn',
+    '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/semi': ['error', 'never'],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
     '@typescript-eslint/naming-convention': [
