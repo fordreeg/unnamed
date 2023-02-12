@@ -1,13 +1,13 @@
-import { createTheme, responsiveFontSizes, Theme } from '@mui/material'
+import { createTheme, Theme } from '@mui/material'
 import { ThemeMode } from '~/types/interfaces/shared'
-import Palettes from '~/theme/palette'
+import Palette from '~/theme/palette'
 import Typography from '~/theme/typography'
 import Overrides from '~/theme/overrides'
 
 type IMUITheme = (mode: ThemeMode) => Theme
 
 const MUITheme: IMUITheme = (mode: ThemeMode) => createTheme({
-  spacing: 8,
+  spacing: 16,
   breakpoints: {
     values: {
       xs: 0,
@@ -17,28 +17,11 @@ const MUITheme: IMUITheme = (mode: ThemeMode) => createTheme({
       xl: 1536
     }
   },
-  palette: {
-    mode,
-    primary: {
-      main: '#4E5D78',
-      light: '#717D93'
-    },
-    secondary: {
-      main: '#377DFF'
-    },
-    error: {
-      main: '#FF5630'
-    },
-    success: {
-      main: '#38CB89',
-      light: '#D7F5E7'
-    },
-    ...Palettes[mode]
-  },
+  palette: Palette(mode),
   typography: { ...Typography },
   components: { ...Overrides }
 })
 
-const getTheme = (mode: ThemeMode) => responsiveFontSizes(MUITheme(mode))
+const getTheme = (mode: ThemeMode) => MUITheme(mode)
 
 export default getTheme
