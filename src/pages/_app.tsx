@@ -26,7 +26,7 @@ export default function App({
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Layout setMode={setMode}>
+        <Layout setMode={setMode} mode={mode}>
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

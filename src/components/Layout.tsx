@@ -7,10 +7,12 @@ import { makeStyles } from 'tss-react/mui'
 interface LayoutProps {
   children: React.ReactNode
   setMode: Dispatch<SetStateAction<'light' | 'dark'>>
+  mode: 'light' | 'dark'
 }
 
 const Layout: FC<LayoutProps> = ({
   children,
+  mode,
   setMode
 }) => {
   const { classes } = useStyles()
@@ -20,9 +22,8 @@ const Layout: FC<LayoutProps> = ({
       <Header />
       <Grid component="main" className={classes.main}>
         {children}
-        main
       </Grid>
-      <Footer setMode={setMode} />
+      <Footer setMode={setMode} mode={mode} />
     </Grid>
   )
 }

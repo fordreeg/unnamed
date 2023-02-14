@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { Box, Grid, Typography } from '@mui/material'
 import NextLink from 'next/link'
-import Logo from '~/assets/svg/logo.svg'
-import Avatar from '~/assets/img/avatar.jpg'
+import Logo from '~/assets/icons/logo.svg'
+import Avatar from '~/assets/images/avatar.jpg'
 import { makeStyles } from 'tss-react/mui'
 import SearchInput from '~/components/SearchInput'
 import Image from 'next/image'
@@ -30,20 +30,30 @@ const Header: FC<HeaderProps> = ({ children }) => {
         </Grid>
         {isAuth
           && (
-          <Grid item display="flex" justifyContent="space-between" width="100%" alignItems="center">
-            <Grid item className={classes.searchInput}><SearchInput /></Grid>
-            <Grid item className={classes.userName}>
-              <Box component="div">
-                <Typography
-                  variant="h5"
-                  component="h4"
-                >
-                  {userName}
-                </Typography>
-              </Box>
-              <Image src={Avatar} alt="avatar" className={classes.avatar} />
+            <Grid
+              item
+              display="flex"
+              justifyContent="space-between"
+              width="100%"
+              alignItems="center"
+            >
+              <Grid item className={classes.searchInput}><SearchInput /></Grid>
+              <Grid item className={classes.userName}>
+                <Box component="div">
+                  <Typography
+                    variant="h5"
+                    component="h4"
+                  >
+                    {userName}
+                  </Typography>
+                </Box>
+                <Image
+                  src={Avatar}
+                  alt="avatar"
+                  className={classes.avatar}
+                />
+              </Grid>
             </Grid>
-          </Grid>
           )}
 
       </Grid>
