@@ -1,4 +1,5 @@
 import { PaletteOptions } from '@mui/material/styles/createPalette'
+import { ThemeMode } from '~/types/interfaces/shared'
 
 interface IPalettes {
   light: PaletteOptions
@@ -32,4 +33,23 @@ const Palettes: IPalettes = {
   }
 }
 
-export default Palettes
+const Palette = (mode: ThemeMode) => ({
+  mode,
+  primary: {
+    main: '#4E5D78',
+    light: '#717D93'
+  },
+  secondary: {
+    main: '#377DFF'
+  },
+  error: {
+    main: '#FF5630'
+  },
+  success: {
+    main: '#38CB89',
+    light: '#D7F5E7'
+  },
+  ...Palettes[mode]
+})
+
+export default Palette
